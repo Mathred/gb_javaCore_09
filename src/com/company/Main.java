@@ -40,12 +40,8 @@ public class Main {
     private static void trySumArrayElements(String[][] testArray) {
         try {
             System.out.println(sumArrayElements(testArray));
-        } catch (MyArraySizeException e){
-            System.out.println("MyArraySizeException");
-            e.printStackTrace();
-        } catch (MyArrayDataException e) {
-            System.out.println("MyArrayDataException");
-            e.printStackTrace();
+        } catch (MyArraySizeException | MyArrayDataException e){
+            System.out.println(e.getMessage());
         }
     }
 
