@@ -2,43 +2,55 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) throws MyArraySizeException, MyArrayDataException {
+    public static void main(String[] args) {
 
-//        String[][] testArray1 = new String[][]{
-//                {"1","1","1","1"},
-//                {"1","1","1","1"},
-//                {"1","1","1","1"},
-//                {"1","1","1","1"}
-//        };
-//        System.out.println(sumArrayElements(testArray1));
+        String[][] testArray1 = new String[][]{
+                {"1","1","1","1"},
+                {"1","1","1","1"},
+                {"1","1","1","1"},
+                {"1","1","1","1"}
+        };
+        trySumArrayElements(testArray1);
 
-//        String[][] testArray2 = new String[][]{
-//                {"1","1","1","1"},
-//                {"1","1","1","1"},
-//                {"1","1","1","1"}
-//        };
-//        System.out.println(sumArrayElements(testArray2));
-
-//        String[][] testArray3 = new String[][]{
-//                {"1","1","1"},
-//                {"1","1","1","1"},
-//                {"1","1","1","1"},
-//                {"1","1","1","1"}
-//        };
-//        System.out.println(sumArrayElements(testArray3));
+        String[][] testArray2 = new String[][]{
+                {"1","1","1","1"},
+                {"1","1","1","1"},
+                {"1","1","1","1"}
+        };
+        trySumArrayElements(testArray2);
 
         String[][] testArray3 = new String[][]{
+                {"1","1","1"},
+                {"1","1","1","1"},
+                {"1","1","1","1"},
+                {"1","1","1","1"}
+        };
+        trySumArrayElements(testArray3);
+
+        String[][] testArray4 = new String[][]{
                 {"1","1","1","f"},
                 {"1","1","1","1"},
                 {"1","1","1","1"},
                 {"1","1","1","1"}
         };
-        System.out.println(sumArrayElements(testArray3));
+        trySumArrayElements(testArray4);
 
     }
 
-    public static int sumArrayElements (String[][] inputArray) throws MyArraySizeException, MyArrayDataException {
-        int sum = 0;
+    private static void trySumArrayElements(String[][] testArray) {
+        try {
+            System.out.println(sumArrayElements(testArray));
+        } catch (MyArraySizeException e){
+            System.out.println("MyArraySizeException");
+            e.printStackTrace();
+        } catch (MyArrayDataException e) {
+            System.out.println("MyArrayDataException");
+            e.printStackTrace();
+        }
+    }
+
+    public static long sumArrayElements (String[][] inputArray) throws MyArraySizeException, MyArrayDataException {
+        long sum = 0;
 
         if (inputArray.length != 4) {
             throw new MyArraySizeException("Массив неверного размера\nЧисло строк:" + inputArray.length +" (не равно 4)");
